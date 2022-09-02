@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio;
+package com.math;
 
 /*
  * Actual math for calculating trajectory
@@ -63,6 +63,8 @@ import java.util.*;
         // Fix double negative, but later
         //if (precheckedEquation.contains("- -")) {
         //}
+
+        //Add threshold
 
         this.equation = precheckedEquation;
     }
