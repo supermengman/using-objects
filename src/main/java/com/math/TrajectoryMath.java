@@ -7,8 +7,6 @@ package com.math;
  * 
  */
 
-import java.util.*;
-
  public class TrajectoryMath {
 
     // Initialize variables
@@ -16,6 +14,10 @@ import java.util.*;
     private double degrees;
     private double height;
     private String equation;
+    private double coefficientA;
+    private double coefficientB;
+    private double coefficientC;
+
     
     // Constructor
     public TrajectoryMath(double velocity, double degrees, double height) {
@@ -43,6 +45,18 @@ import java.util.*;
         return this.equation;
     }
 
+    public double getCoefficientA() {
+        return this.coefficientA;
+    }
+
+    public double getCoefficientB() {
+        return this.coefficientB;
+    }
+
+    public double getCoefficientC() {
+        return this.coefficientC;
+    }
+
     public void setVelocity(double velocity) {
         this.velocity = velocity;
     }
@@ -57,9 +71,13 @@ import java.util.*;
 
     // Math for equation
     private void calculateEquation() {
-        String precheckedEquation = "y = " + String.valueOf(height) + " + " + String.valueOf(Math.tan(degrees)) + "x - " +
-        String.valueOf(9.8 / (2 * Math.pow(velocity, 2) * Math.pow(Math.cos(degrees), 2))) + "x^2";
 
+        this.coefficientA = height;
+        this.coefficientB = Math.tan(degrees);
+        this.coefficientC = 9.8 / (2 * Math.pow(velocity, 2) * Math.pow(Math.cos(degrees), 2));
+
+        String precheckedEquation = "y = " + String.valueOf(coefficientA) + " + " + String.valueOf(coefficientB) + "x - " +
+        String.valueOf(coefficientC) + "x^2";
         // Fix double negative, but later
         //if (precheckedEquation.contains("- -")) {
         //}
@@ -69,8 +87,12 @@ import java.util.*;
         this.equation = precheckedEquation;
     }
 
-    public static void main(String[] args) {
+    /*
+    Just testing if it works => y = 4.0 + 0.320040389379563x - 0.024008385195945284x^2
+     *  public static void main(String[] args) {
         TrajectoryMath example = new TrajectoryMath(15, 60, 4);
         System.out.println(example.getEquation());
-    }
+     }
+     */
+   
  }
