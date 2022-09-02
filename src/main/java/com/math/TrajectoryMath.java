@@ -87,6 +87,10 @@ package com.math;
         this.equation = precheckedEquation;
     }
 
+    public double getValue(double v) {
+        return coefficientA + coefficientB*v - coefficientC*Math.pow(v, 2);
+    }
+
     /*
     Just testing if it works => y = 4.0 + 0.320040389379563x - 0.024008385195945284x^2
      *  public static void main(String[] args) {
