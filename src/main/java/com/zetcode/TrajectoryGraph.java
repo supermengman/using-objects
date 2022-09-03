@@ -1,5 +1,5 @@
 package com.zetcode;
-
+//import org.jfree.data.general.DatasetUtilities;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -27,7 +27,8 @@ public class TrajectoryGraph extends JFrame {
 
     public static void main(String[] args) {
         TrajectoryMath test = new TrajectoryMath(10, 30, 40);
-        System.out.println(test.getValue(4));
-        
+        //System.out.println(test.getEquation());
+        //XYDataset dataset = DatasetUtilities.sampleFunction2D(test, 1.0, 5.0, 50, "Function");
+        //final JFreeChart chart = ChartFactory.createXYLineChart("Equation", "X", "Y", dataset, PlotOrientation.VERTICAL, true, true, false);
     }
 }

@@ -1,5 +1,7 @@
 package com.math;
 
+import org.jfree.data.function.Function2D;
+
 /*
  * Actual math for calculating trajectory
  * 
@@ -7,7 +9,7 @@ package com.math;
  * 
  */
 
- public class TrajectoryMath {
+ public class TrajectoryMath implements Function2D {
 
     // Initialize variables
     private double velocity;
@@ -73,8 +75,8 @@ package com.math;
     private void calculateEquation() {
 
         this.coefficientA = height;
-        this.coefficientB = Math.tan(degrees);
-        this.coefficientC = 9.8 / (2 * Math.pow(velocity, 2) * Math.pow(Math.cos(degrees), 2));
+        this.coefficientB = Math.tan(degrees * Math.PI/180);
+        this.coefficientC = 9.8 / (2 * Math.pow(velocity, 2) * Math.pow(Math.cos(degrees * Math.PI/180), 2));
 
         String precheckedEquation = "y = " + String.valueOf(coefficientA) + " + " + String.valueOf(coefficientB) + "x - " +
         String.valueOf(coefficientC) + "x^2";
