@@ -27,9 +27,9 @@ import java.awt.Dimension;
 
 public class TrajectoryGraph extends JFrame {
     public double currentHeight;
-    public TrajectoryGraph() {
-        Function2D test = new TrajectoryMath(10, 30, 40);
-        TrajectoryMath testGetter = new TrajectoryMath(10, 30, 40);
+    public TrajectoryGraph(double velocity, double degrees, double height) {
+        Function2D test = new TrajectoryMath(velocity, degrees, height);
+        TrajectoryMath testGetter = new TrajectoryMath(velocity, degrees, height);
         XYDataset dataset = DatasetUtils.sampleFunction2D(test, 0.0, testGetter.getRoot(), 50, "Function");
         final JFreeChart chart = ChartFactory.createXYLineChart("Trajectory Equation", "Time (seconds)", "Position (meters)", dataset, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel cp = new ChartPanel(chart) {
@@ -51,7 +51,7 @@ public class TrajectoryGraph extends JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TrajectoryGraph().setVisible(true);
+                new TrajectoryGraph(10, 30, 40).setVisible(true);
             }
         });
         
