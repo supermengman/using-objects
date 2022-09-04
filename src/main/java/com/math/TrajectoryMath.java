@@ -7,6 +7,7 @@ import org.jfree.data.function.Function2D;
  * 
  * Calculates equation as a string and returns it
  * 
+ * 
  */
 
  public class TrajectoryMath implements Function2D {
