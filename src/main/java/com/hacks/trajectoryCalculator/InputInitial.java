@@ -1,14 +1,14 @@
-package com.math;
+package com.hacks.trajectoryCalculator;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class InputInitial {
-    public static int initialVelocity;
-    public static int initialDegrees;
-    public static int initialHeight;
+    public static double initialVelocity;
+    public static double initialDegrees;
+    public static double initialHeight;
 
-    private void spawnInputs() {
+    public void spawnInputs() {
         JTextField inputVelocity = new JTextField();
         JTextField inputDegrees = new JTextField();
         JTextField inputHeight = new JTextField();
@@ -21,14 +21,14 @@ public class InputInitial {
 
         JOptionPane.showConfirmDialog(null, inputs, "Input the initial values for your object:", JOptionPane.OK_CANCEL_OPTION);
 
-        System.out.println(parseInput(inputVelocity, initialVelocity));
-        System.out.println(parseInput(inputDegrees, initialDegrees));
-        System.out.println(parseInput(inputHeight, initialHeight));
+        initialVelocity = parseInput(inputVelocity);
+        initialDegrees = parseInput(inputDegrees);
+        initialHeight = parseInput(inputHeight);
     }
 
-    public int parseInput(JTextField inputValue, int initialValue) {
+    public double parseInput(JTextField inputValue) {
         String placeholder = inputValue.getText();
-        initialValue = Integer.parseInt(placeholder);
+        double initialValue = Double.parseDouble(placeholder);
         return initialValue;
     }
 }

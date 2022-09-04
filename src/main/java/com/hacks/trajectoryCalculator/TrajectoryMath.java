@@ -1,4 +1,4 @@
-package com.math;
+package com.hacks.trajectoryCalculator;
 
 import org.jfree.data.function.Function2D;
 

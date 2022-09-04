@@ -1,33 +1,26 @@
-package com.hacks;
+package com.hacks.trajectoryCalculator;
 import org.jfree.data.function.Function2D;
 import org.jfree.data.general.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
-import com.math.TrajectoryMath;
+import com.hacks.trajectoryCalculator.*;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.io.File;
 import java.awt.Dimension;
 
 public class TrajectoryGraph extends JFrame {
     public double currentHeight;
-    public TrajectoryGraph(double velocity, double degrees, double height) {
+    public TrajectoryGraph() {
+        InputInitial newInputs = new InputInitial();
+        newInputs.spawnInputs();
+       drawGraph(InputInitial.initialVelocity, InputInitial.initialDegrees, InputInitial.initialHeight);
+    }
+
+    public void drawGraph(double velocity, double degrees, double height) {
         Function2D test = new TrajectoryMath(velocity, degrees, height);
         TrajectoryMath testGetter = new TrajectoryMath(velocity, degrees, height);
         XYDataset dataset = DatasetUtils.sampleFunction2D(test, 0.0, testGetter.getRoot(), 50, "Function");
@@ -44,14 +37,13 @@ public class TrajectoryGraph extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
     }
-
     public static void main(String[] args) {
     
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TrajectoryGraph(10, 30, 40).setVisible(true);
+                new TrajectoryGraph().setVisible(true);
             }
         });
         
