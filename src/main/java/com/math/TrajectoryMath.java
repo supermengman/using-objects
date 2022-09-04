@@ -59,6 +59,21 @@ import org.jfree.data.function.Function2D;
         return this.coefficientC;
     }
 
+    public double getRoot() {
+        double rootOne = (-this.coefficientB + Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
+        double rootTwo = (-this.coefficientB - Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
+
+        System.out.println(rootOne);
+        System.out.println(rootTwo);
+        if (rootOne > 0) {
+            return rootOne;
+        } else if (rootTwo > 0) {
+            return rootTwo;
+        } else {
+            return 0.0;
+        }
+    }
+
     public void setVelocity(double velocity) {
         this.velocity = velocity;
     }
@@ -69,6 +84,13 @@ import org.jfree.data.function.Function2D;
     
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    // Array should be in order of velocity, degrees, and height
+    public void setParameters(double[] values) {
+        this.velocity = values[0];
+        this.degrees = values[1];
+        this.height = values[2];
     }
 
     // Math for equation
@@ -85,20 +107,19 @@ import org.jfree.data.function.Function2D;
         //}
 
         //Add threshold
-
         this.equation = precheckedEquation;
     }
 
     public double getValue(double v) {
-        return coefficientA + coefficientB*v - coefficientC*Math.pow(v, 2);
+        return coefficientA + coefficientB * v - coefficientC * Math.pow(v, 2);
     }
 
     /*
-    Just testing if it works => y = 4.0 + 0.320040389379563x - 0.024008385195945284x^2
-     *  public static void main(String[] args) {
+     * public static void main(String[] args) {
         TrajectoryMath example = new TrajectoryMath(15, 60, 4);
-        System.out.println(example.getEquation());
+        System.out.println(example.getRoot());
      }
      */
+     
    
  }
