@@ -64,8 +64,6 @@ import org.jfree.data.function.Function2D;
         double rootOne = (-this.coefficientB + Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
         double rootTwo = (-this.coefficientB - Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
 
-        System.out.println(rootOne);
-        System.out.println(rootTwo);
         if (rootOne > 0) {
             return rootOne;
         } else if (rootTwo > 0) {
