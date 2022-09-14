@@ -5,8 +5,9 @@ import org.jfree.data.function.Function2D;
 /*
  * Actual math for calculating trajectory
  * 
- * Calculates equation as a string and returns it
- * 
+ * Calculates equation as a string
+ *  
+ * Returns equation
  * 
  */
 
@@ -60,6 +61,9 @@ import org.jfree.data.function.Function2D;
         return this.coefficientC;
     }
 
+    // Gets the root of the equation
+    // There should be only one positive root, so the method will return that and discard the other
+    // Returns 0.0 if none is found (which shouldn't happen usually)
     public double getRoot() {
         double rootOne = (-this.coefficientB + Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
         double rootTwo = (-this.coefficientB - Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA)) / (2 * (-this.coefficientC));
@@ -95,20 +99,18 @@ import org.jfree.data.function.Function2D;
     // Math for equation
     private void calculateEquation() {
 
+        // Calculates coefficients for each part
         this.coefficientA = height;
         this.coefficientB = Math.tan(degrees * Math.PI/180);
         this.coefficientC = 9.8 / (2 * Math.pow(velocity, 2) * Math.pow(Math.cos(degrees * Math.PI/180), 2));
 
+        // Makes string of equation just in case
         String precheckedEquation = "y = " + String.valueOf(coefficientA) + " + " + String.valueOf(coefficientB) + "x - " +
         String.valueOf(coefficientC) + "x^2";
-        // Fix double negative, but later
-        //if (precheckedEquation.contains("- -")) {
-        //}
-
-        //Add threshold
         this.equation = precheckedEquation;
     }
 
+    // Returns equation
     public double getValue(double v) {
         return coefficientA + coefficientB * v - coefficientC * Math.pow(v, 2);
     }
