@@ -19,7 +19,7 @@ import java.awt.Dimension;
 public class TrajectoryGraph extends JFrame {
     // Constructor of the graph that will be displayed
     public TrajectoryGraph() {
-        InputInitial newInputs = new InputInitial(); // start input object from separate file
+        InputInitial newInputs = new InputInitial(); // start input object from separate file,
         newInputs.spawnInputs(); // start the process of collecting user input
        drawGraph(InputInitial.initialVelocity, InputInitial.initialDegrees, InputInitial.initialHeight); // call method to draw the graph with the user input taken
     }

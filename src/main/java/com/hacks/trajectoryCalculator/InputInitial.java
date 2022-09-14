@@ -26,7 +26,7 @@ public class InputInitial {
             };
 
             JOptionPane.showConfirmDialog(null, inputs, "Input the initial values for your object (numbers only):", JOptionPane.OK_CANCEL_OPTION); // creates the option menu with the 3 inputs
-
+            
             // take the input, assign it to the public variables
             initialVelocity = parseInput(inputVelocity);
             initialDegrees = parseInput(inputDegrees);
