@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/base}" lang="en">
+
+<head>
+  <title>Count Letters</title>
+</head>
+
+<body>
+<th:block layout:fragment="body" th:remove="tag">
+  <!-- Start of body content specific to page -->
+  <div class="px-4 py-5 my-5">
+    <h3 class="display-5 fw-bold">Type Some Text!</h3>
+
+    <form action="/countletter" method="GET" id="countForm">
+      <div>
+        <label for="countField">Go ahead: </label>
+        <input name="name" id="countField">
+        <button>COUNT!</button>
+        <p th:text="'' + ${value} + ' letters typed!'"></p>
+      </div>
+    </form>
+  </div>
+  <!-- End of body content specific to page -->
+</th:block>
+</body>
+
+</html>
