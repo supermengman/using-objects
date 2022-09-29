@@ -1,4 +1,4 @@
-package com.hacks.trajectoryCalculator;
+package com.nighthawk.spring_portfolio.hacks.trajectoryCalculator;
 
 import javax.swing.JOptionPane; // library to display options
 import javax.swing.JTextField; // library to create a text field to render on GUI

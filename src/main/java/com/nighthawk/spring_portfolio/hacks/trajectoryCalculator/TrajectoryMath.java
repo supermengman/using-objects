@@ -1,4 +1,4 @@
-package com.hacks.trajectoryCalculator;
+package com.nighthawk.spring_portfolio.hacks.trajectoryCalculator;
 
 import org.jfree.data.function.Function2D;
 

@@ -1,4 +1,4 @@
-package com.hacks.trajectoryCalculator; // maven build
+package com.nighthawk.spring_portfolio.hacks.trajectoryCalculator; // maven build
 
 // import the graphs
 import org.jfree.data.function.Function2D;
@@ -9,8 +9,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYDataset;
 
-// import the other files
-import com.hacks.trajectoryCalculator.*;
+import com.nighthawk.spring_portfolio.hacks.trajectoryCalculator.*;
 
 // import swing and awt
 import javax.swing.JFrame;
